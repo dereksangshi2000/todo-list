@@ -1,0 +1,116 @@
+/* We can also use rem here for the media query. But according to the question, I will just use pixels. */
+
+@media only screen and (max-width: 600px) {
+  .items {
+    flex-direction: column;
+  }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 750px) {
+  .items {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .item-wrapper {
+    min-width: 300px;
+    /* Because of the item-wrapper added, I don't need to do the caculations like in below.*/
+    /* 300px - 2rem(1rem margin on both left and right, 2rem x 12 = 24px) */
+  }
+}
+
+@media only screen and (min-width: 751px) {
+  .item-wrapper {
+    min-width: 33.33%;
+    max-width: 33.33%;
+  }
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 12px; /* So 1rem = 12px */
+}
+
+* {
+  box-sizing: inherit;
+}
+
+.app {
+  margin: 0 auto;
+  max-width: 900px;
+}
+
+header {
+  border-bottom: 1px solid red;
+  display: flex;
+  margin-bottom: 2rem;
+  padding: 2rem 0;
+  justify-content: space-between;
+  /* The drawback here is the last 2 items in the last line will align to each end.*/
+  /* You said 'evenly spaced columns', I'm not sure if my understanding here is correct or not.*/
+}
+
+header > .logo {
+  flex: 1;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+header > .nav {
+  flex: 1;
+  justify-content: flex-end;
+  display: flex;
+}
+
+.items {
+  border-radius: 1rem;
+  border: 1px solid gray;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.item-wrapper {
+  flex: 1;
+  padding: 0;
+  margin: 0;
+}
+
+.item {
+  flex: 1;
+  border-radius: 1rem;
+  border: 1px solid grey;
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.complete {
+  background-color: red;
+}
+
+.item .checkbox {
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+}
+
+.bottom-menu {
+  background-color: #999999;
+  width: 100%;
+  height: 100px;
+  display: none;
+  padding: 10px;
+}
+
+.bottom-menu.visible {
+  display: block;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  opacity: 0.9;
+}
+
+
